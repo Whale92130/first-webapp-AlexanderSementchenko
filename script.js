@@ -1,3 +1,5 @@
+
+
 function setCookie(name, value, days) {
     const date = new Date();
     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
@@ -18,7 +20,6 @@ function showQuitMessage() {
 `;
 
 }
-
 // Check on page load if user has already quit
 window.addEventListener("DOMContentLoaded", () => {
     if (getCookie("userQuit") === "true") {
@@ -32,6 +33,25 @@ if (quit) {
     quit.addEventListener("click", () => {
         setCookie("userQuit", "true", 7); // Save for 7 days
         showQuitMessage();
+    });
+}
+
+const body1 = document.getElementById("body1");
+if (body1) {
+    body1.addEventListener("click", () => {
+        if (document.getElementById("blueBox")) {
+            document.getElementById("blueBox").remove();
+            document.getElementById("newBlueBoxContainer").style.animation = "appearNewBlueBox 2s ease-in-out 0s forwards";
+        } else if (document.getElementById("greenBox")) {
+            document.getElementById("greenBox").remove();
+            document.getElementById("newGreenBoxContainer").style.animation = "appearNewBlueBox 2s ease-in-out 0s forwards";
+        } else if (document.getElementById("yellowBox")) {
+            document.getElementById("yellowBox").remove();
+            document.getElementById("newYellowBoxContainer").style.animation = "appearNewBlueBox 2s ease-in-out 0s forwards";
+        } else if (document.getElementById("purpleBox")) {
+            document.getElementById("purpleBox").remove();
+            document.getElementById("newPurpleBoxContainer").style.animation = "appearNewBlueBox 2s ease-in-out 0s forwards";
+        }
     });
 }
 
@@ -83,6 +103,15 @@ function getCookie(name) {
     }
     return null;
 }
+if (window.location.pathname.endsWith("Box.html")) {
+    if (getCookie("areTheyCheating") == "false") {
+        alert("Go back to the store to buy boxes.");
+        window.location.href = "boxes.html";
+    } else {
+       setCookie("areTheyCheating", "false", 2);
+    }
+  }
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const newBlueBox = document.getElementById('newBlueBox');
@@ -130,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         } else if (useableBox == newYellowBox) {
             colorChances = {
-                red: 0.05,
+                red: 0.2,
                 orange: 0,
                 yellow: 0,
                 green: 0,
@@ -142,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         } else if (useableBox == newPurpleBox) {
             colorChances = {
-                red: 0.2,
+                red: 1,
                 orange: 0,
                 yellow: 0,
                 green: 0,
@@ -165,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const selectedColor = weightedColors[randomIndex];
 
         // Set background color for the box
-        
+
         if (selectedColor === "gold") {
             useableBox.style.boxShadow = "0 0 20px 10px rgba(247, 255, 138, 0.8)";
             useableBox.style.borderRadius = "10px";
@@ -267,8 +296,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
     // Ensure the DOM is fully loaded before accessing the elements
     const circle = document.getElementById('circle');
@@ -294,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (count >= 50) {
                 count = Math.max(0, count - 50); // Prevent negative count
                 setCookie('count', count, 3650);
-
+                setCookie("areTheyCheating", "true", 2)
                 // Update counter and credits text
                 if (counter) {
                     counter.textContent = count;
@@ -317,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (count >= 1000) {
                 count = Math.max(0, count - 1000); // Prevent negative count
                 setCookie('count', count, 3650);
-
+                setCookie("areTheyCheating", "true", 2)
                 // Update counter and credits text
                 if (counter) {
                     counter.textContent = count;
@@ -340,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (count >= 50000) {
                 count = Math.max(0, count - 50000); // Prevent negative count
                 setCookie('count', count, 3650);
-
+                setCookie("areTheyCheating", "true", 2)
                 // Update counter and credits text
                 if (counter) {
                     counter.textContent = count;
@@ -363,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (count >= 1000000000) {
                 count = Math.max(0, count - 1000000000); // Prevent negative count
                 setCookie('count', count, 3650);
-
+                setCookie("areTheyCheating", "true", 2)
                 // Update counter and credits text
                 if (counter) {
                     counter.textContent = count;
@@ -418,7 +445,7 @@ document.addEventListener('DOMContentLoaded', function () {
             bonusMulti = bonusMulti + colorCounts[5] * 1
             bonusMulti = bonusMulti + colorCounts[6] * 2
             bonusMulti = bonusMulti + colorCounts[7] * 3
-            bonusMulti = bonusMulti * (colorCounts[8] + 1)
+            bonusMulti = bonusMulti * (2 * (colorCounts[8] + 1));
             count = count + bonusMulti;
             count = Math.round(count * 10) / 10;
             if (counter) {
