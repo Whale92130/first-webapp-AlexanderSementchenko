@@ -1,0 +1,510 @@
+/* Add CSS styles for your web site here and use them in index.html. */
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.custom-button {
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    font-weight: bold;
+    padding: 10px 15px;
+    font-size: 20pt;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+.custom-button:hover {
+    background-color: aqua;
+    color: black;
+}
+
+html {
+    background-color: black;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+h3 {
+    display: flex;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+}
+
+#boxStore {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1%;
+}
+
+.boxContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.boxContainer:hover {
+    transform: scale(1.1);
+}
+
+.boxes {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.price {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
+
+.rainbow-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.rainbow-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.color-square {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+#gold {
+    border-radius: 5px;
+}
+
+#circle {
+    width: 300px;
+    height: 300px;
+    background-color: aqua;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#circle:hover {
+    transform: scale(1.2);
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    transform: scale(0);
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    gap: 10%;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: all .3s
+}
+
+.end {
+    font-size: 15pt;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+nav ul li a:hover {
+    background-color: aqua;
+    color: black;
+    padding: 5px;
+    border-radius: 8px;
+    transition-duration: 0.3s;
+    margin: -5px;
+}
+
+
+#body1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Initial setup for blueBox */
+#blueBox {
+    width: 100px;
+    /* Set the width of the PNG */
+    height: 100px;
+    /* Set the height of the PNG */
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Center the box */
+    opacity: 0;
+    border-radius: 100px;
+    transform-origin: center;
+    /* Ensure the element scales from the center */
+    transition: opacity 0.5s ease-out;
+    margin-top: 50px;
+    /* Increase this value to move the blue box further down */
+    margin-bottom: 50px;
+}
+
+#greenBox {
+    width: 100px;
+    /* Set the width of the PNG */
+    height: 100px;
+    /* Set the height of the PNG */
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Center the box */
+    opacity: 0;
+    border-radius: 100px;
+    transform-origin: center;
+    /* Ensure the element scales from the center */
+    transition: opacity 0.5s ease-out;
+    margin-top: 50px;
+    /* Increase this value to move the blue box further down */
+    margin-bottom: 50px;
+}
+
+#yellowBox {
+    width: 100px;
+    /* Set the width of the PNG */
+    height: 100px;
+    /* Set the height of the PNG */
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Center the box */
+    opacity: 0;
+    border-radius: 100px;
+    transform-origin: center;
+    /* Ensure the element scales from the center */
+    transition: opacity 0.5s ease-out;
+    margin-top: 50px;
+    /* Increase this value to move the blue box further down */
+    margin-bottom: 50px;
+}
+
+#purpleBox {
+    width: 100px;
+    /* Set the width of the PNG */
+    height: 100px;
+    /* Set the height of the PNG */
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Center the box */
+    opacity: 0;
+    border-radius: 100px;
+    transform-origin: center;
+    /* Ensure the element scales from the center */
+    transition: opacity 0.5s ease-out;
+    margin-top: 50px;
+    /* Increase this value to move the blue box further down */
+    margin-bottom: 50px;
+}
+
+/* Shine effect and crate opening animation */
+@keyframes crateOpenShineDisappear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+        /* Start small (shrunken) from center */
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        /* No shadow initially */
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(5);
+        /* Scale up from the center */
+        box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.8);
+        /* Larger, glowing shine effect */
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        /* No shadow when disappearing */
+    }
+}
+
+/* Apply the animation to blueBox */
+#blueBox {
+    animation: crateOpenShineDisappear 4s forwards;
+}
+
+#greenBox {
+    animation: crateOpenShineDisappear 4s forwards;
+}
+
+#yellowBox {
+    animation: crateOpenShineDisappear 4s forwards;
+}
+
+#purpleBox {
+    animation: crateOpenShineDisappear 4s forwards;
+}
+
+#newBlueBox {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: showNewBox 0.5s ease-in-out 0.5s forwards;
+}
+
+#newGreenBox {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: showNewBox 0.5s ease-in-out 0.5s forwards;
+}
+
+#newYellowBox {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: showNewBox 0.5s ease-in-out 0.5s forwards;
+}
+
+#newPurpleBox {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    background-color: purple;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: showNewBox 0.5s ease-in-out 0.5s forwards;
+}
+
+@keyframes appearNewBlueBox {
+    0% {
+        opacity: 0;
+        /* Start invisible */
+    }
+
+    100% {
+        opacity: 1;
+        /* Fade in */
+    }
+}
+
+#newBlueBoxContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* Center the text horizontally */
+    opacity: 0;
+    /* Initially hidden */
+    display: flex;
+    flex-direction: column;
+    /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    /* Center all items horizontally */
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    /* Optional: Add padding to the container */
+    animation: appearNewBlueBox 2s ease-in-out 2.9s forwards;
+    /* Fade in after blueBox animation */
+}
+
+#newGreenBoxContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* Center the text horizontally */
+    opacity: 0;
+    /* Initially hidden */
+    display: flex;
+    flex-direction: column;
+    /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    /* Center all items horizontally */
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    /* Optional: Add padding to the container */
+    animation: appearNewBlueBox 2s ease-in-out 2.9s forwards;
+    /* Fade in after blueBox animation */
+}
+
+#newYellowBoxContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* Center the text horizontally */
+    opacity: 0;
+    /* Initially hidden */
+    display: flex;
+    flex-direction: column;
+    /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    /* Center all items horizontally */
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    /* Optional: Add padding to the container */
+    animation: appearNewBlueBox 2s ease-in-out 2.9s forwards;
+    /* Fade in after blueBox animation */
+}
+
+#newPurpleBoxContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* Center the text horizontally */
+    opacity: 0;
+    /* Initially hidden */
+    display: flex;
+    flex-direction: column;
+    /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    /* Center all items horizontally */
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    /* Optional: Add padding to the container */
+    animation: appearNewBlueBox 2s ease-in-out 2.9s forwards;
+    /* Fade in after blueBox animation */
+}
+
+@keyframes showNewBox {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+#aboveText {
+    margin-bottom: 20px;
+    /* Space between 'You got a' and the blue box */
+    font-size: 24px;
+    /* Customize font size as needed */
+}
+
+#belowText {
+    margin-top: 20px;
+    /* Space between the 'CLAIM' text and the blue box */
+    font-size: 20px;
+    /* Customize font size as needed */
+    text-decoration: none;
+    /* Remove underline from the link */
+    color: white;
+    /* Set text color */
+}
