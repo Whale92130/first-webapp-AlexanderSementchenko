@@ -1,3 +1,3 @@
 # Intro Project
-Its a gambling simulator <br>
-The game has an ending
+It's a gambling simulator <br>
+Yes, the game has an ending
