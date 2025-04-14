@@ -128,8 +128,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 blue: 10,
                 purple: 8,
                 pink: 7,
-                white: 5.9,
-                gold: 0.1
+                white: 5.5,
+                gold: 0.5
             };
         } else if (useableBox == newGreenBox) {
             colorChances = {
@@ -140,8 +140,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 blue: 15,
                 purple: 20,
                 pink: 25,
-                white: 18.5,
-                gold: 0.5
+                white: 18,
+                gold: 2
             };
         } else if (useableBox == newYellowBox) {
             colorChances = {
@@ -149,11 +149,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 orange: 0,
                 yellow: 0,
                 green: 0,
-                blue: 15,
+                blue: 12,
                 purple: 33.95,
                 pink: 30,
                 white: 25,
-                gold: 5
+                gold: 8
             };
         } else if (useableBox == newPurpleBox) {
             colorChances = {
