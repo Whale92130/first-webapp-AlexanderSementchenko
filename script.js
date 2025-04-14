@@ -5,10 +5,12 @@ function setCookie(name, value, days) {
     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
     document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
 }
+
 function getCookie(name) {
     const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     return match ? match[2] : null;
 }
+
 function showQuitMessage() {
     document.body.innerHTML = `
   <h3 style="font-size: 40pt; text-align:center; margin-top:20%;">You Quit, Now Leave</h3>
@@ -16,18 +18,16 @@ function showQuitMessage() {
 `;
 
 }
-// Check on page load if user has already quit
 window.addEventListener("DOMContentLoaded", () => {
     if (getCookie("userQuit") === "true") {
         showQuitMessage();
     }
 });
 ;
-// Handle quit button click
 const quit = document.getElementById("quit");
 if (quit) {
     quit.addEventListener("click", () => {
-        setCookie("userQuit", "true", 7); // Save for 7 days
+        setCookie("userQuit", "true", 7);
         showQuitMessage();
     });
 }
@@ -56,10 +56,8 @@ let isRainbowUnlocked = false
 const startOver = document.getElementById("startOver");
 if (startOver) {
     startOver.addEventListener("click", function () {
-        // Get all cookies and split them
         const cookies = document.cookie.split(";");
 
-        // Loop through each cookie and expire it
         cookies.forEach(cookie => {
             const eqPos = cookie.indexOf("=");
             const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
@@ -69,23 +67,15 @@ if (startOver) {
 }
 
 function getColorCounts() {
-    // Define the order of colors
     const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'white', 'gold'];
-
-    // Retrieve the inventory from the cookie
     let inventory = getCookie('inventory');
     inventory = inventory ? JSON.parse(inventory) : {};
-
-    // Create an array to hold the counts for each color
     const colorCounts = [];
-
-    // Loop through each color and get its count from the inventory (default to 0 if not found)
     colors.forEach(color => {
         const count = inventory[color] || 0;
         colorCounts.push({ color, count });
     });
 
-    // Return the array of color counts
     return colorCounts;
 }
 
@@ -189,8 +179,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const randomIndex = Math.floor(Math.random() * weightedColors.length);
         const selectedColor = weightedColors[randomIndex];
 
-        // Set background color for the box
-
         if (selectedColor === "gold") {
             useableBox.style.boxShadow = "0 0 20px 10px rgba(247, 255, 138, 0.8)";
             useableBox.style.borderRadius = "10px";
@@ -219,26 +207,21 @@ document.addEventListener('DOMContentLoaded', function () {
             useableBox.style.backgroundColor = selectedColor;
         }
 
-
-        // Update the inventory in the cookie (but not the list yet)
         let inventory = getCookie('inventory');
         inventory = inventory ? JSON.parse(inventory) : {};
 
-        // Increment the color count in the inventory
         if (!inventory[selectedColor]) {
             inventory[selectedColor] = 0;
         }
         inventory[selectedColor]++;
 
-        // Save the updated inventory back to the cookie
-        setCookie('inventory', JSON.stringify(inventory), 3650); // Store for 1 year
-
-        // Helper functions for cookies
+    
+        setCookie('inventory', JSON.stringify(inventory), 3650); 
         function setCookie(name, value, days) {
             const d = new Date();
             d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
             const expires = "expires=" + d.toUTCString();
-            document.cookie = name + "=" + value + ";" + expires + ";path=/"; // "/" makes cookie accessible across pages
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
         }
 
         function getCookie(name) {
@@ -266,11 +249,9 @@ document.addEventListener('DOMContentLoaded', function () {
         gold: 'numOfGolds'
     };
 
-    // Retrieve the inventory data from the cookie
     let inventory = getCookie('inventory');
     inventory = inventory ? JSON.parse(inventory) : {};
 
-    // Update the counters on the page based on the cookie data
     for (const color in colorIdMap) {
         const counterElement = document.getElementById(colorIdMap[color]);
         if (counterElement && inventory[color] !== undefined) {
@@ -278,7 +259,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Helper functions for cookies
+
     function getCookie(name) {
         const nameEQ = name + "=";
         const ca = document.cookie.split(';');
@@ -293,14 +274,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Ensure the DOM is fully loaded before accessing the elements
+   
     const circle = document.getElementById('circle');
     const counter = document.getElementById('counter');
     let count = getCookie('count') ? parseInt(getCookie('count')) : 0;
 
-    // Set counter text to the count value when the page is loaded
     if (counter) {
-        counter.textContent = count; // Update the counter text with the saved count
+        counter.textContent = count;
     }
 
     const box1 = document.getElementById('box1');
@@ -310,23 +290,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const credits = document.getElementById('credits');
     const belowText = document.getElementById('belowText');
 
-    // Ensure box1 exists before adding the event listener
     if (box1) {
         box1.addEventListener('click', function () {
-            // Subtract 10 from the count
             if (count >= 50) {
-                count = Math.max(0, count - 50); // Prevent negative count
+                count = Math.max(0, count - 50);
                 setCookie('count', count, 3650);
                 setCookie("areTheyCheating", "true", 2)
-                // Update counter and credits text
                 if (counter) {
                     counter.textContent = count;
                 }
                 if (credits) {
                     credits.textContent = "Credits: " + count;
                 }
-
-                // Redirect to the blueBox page
                 window.location.href = 'blueBox.html';
             }
             else {
@@ -336,20 +311,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     if (box2) {
         box2.addEventListener('click', function () {
-            // Subtract 10 from the count
             if (count >= 1000) {
-                count = Math.max(0, count - 1000); // Prevent negative count
+                count = Math.max(0, count - 1000);
                 setCookie('count', count, 3650);
                 setCookie("areTheyCheating", "true", 2)
-                // Update counter and credits text
+              
                 if (counter) {
                     counter.textContent = count;
                 }
                 if (credits) {
                     credits.textContent = "Credits: " + count;
                 }
-
-                // Redirect to the blueBox page
                 window.location.href = 'greenBox.html';
             }
             else {
@@ -359,12 +331,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     if (box3) {
         box3.addEventListener('click', function () {
-            // Subtract 10 from the count
             if (count >= 50000) {
-                count = Math.max(0, count - 50000); // Prevent negative count
+                count = Math.max(0, count - 50000); 
                 setCookie('count', count, 3650);
                 setCookie("areTheyCheating", "true", 2)
-                // Update counter and credits text
                 if (counter) {
                     counter.textContent = count;
                 }
@@ -372,7 +342,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     credits.textContent = "Credits: " + count;
                 }
 
-                // Redirect to the blueBox page
                 window.location.href = 'yellowBox.html';
             }
             else {
@@ -382,12 +351,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     if (box4) {
         box4.addEventListener('click', function () {
-            // Subtract 10 from the count
             if (count >= 1000000000) {
-                count = Math.max(0, count - 1000000000); // Prevent negative count
+                count = Math.max(0, count - 1000000000);
                 setCookie('count', count, 3650);
                 setCookie("areTheyCheating", "true", 2)
-                // Update counter and credits text
                 if (counter) {
                     counter.textContent = count;
                 }
@@ -395,7 +362,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     credits.textContent = "Credits: " + count;
                 }
 
-                // Redirect to the blueBox page
                 window.location.href = 'purpleBox.html';
             }
             else {
@@ -405,7 +371,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // Ensure belowText exists before adding the event listener
     if (belowText) {
         belowText.addEventListener('click', function () {
             console.log(isRainbowUnlocked);
@@ -417,12 +382,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         });
     }
-    // Set credits text on page load
     if (credits) {
         credits.textContent = "Credits: " + count;
     }
 
-    // Handle the circle click event to increase count
     if (circle) {
         circle.addEventListener('click', function (e) {
 
@@ -445,20 +408,16 @@ document.addEventListener('DOMContentLoaded', function () {
             count = count + bonusMulti;
             count = Math.round(count * 10) / 10;
             if (counter) {
-                counter.textContent = count; // Update counter text when clicked
+                counter.textContent = count;
             }
-            setCookie('count', count, 3650); // Set cookie to expire in 10 years
-
-            // Update credits text when count changes
+            setCookie('count', count, 3650);
             if (credits) {
                 credits.textContent = "Credits: " + count;
             }
 
-            // Create ripple effect
             const ripple = document.createElement('div');
             ripple.className = 'ripple';
 
-            // Position ripple at click coordinates
             const rect = circle.getBoundingClientRect();
             const size = Math.max(rect.width, rect.height);
             ripple.style.width = size + 'px';
@@ -466,17 +425,14 @@ document.addEventListener('DOMContentLoaded', function () {
             ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
             ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
 
-            // Add ripple to circle
             circle.appendChild(ripple);
 
-            // Remove ripple after animation
             setTimeout(() => {
                 ripple.remove();
             }, 600);
         });
     }
 
-    // Cookie-related functions
     function setCookie(name, value, days) {
         const d = new Date();
         d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -495,16 +451,12 @@ document.addEventListener('DOMContentLoaded', function () {
         return null;
     }
 
-    // More elements you may want to access
     const greenBox = document.getElementById('box2');
     const yellowBox = document.getElementById('box3');
     const purpleBox = document.getElementById('box4');
 });
 function showCreditPopup() {
-    // Prevent duplicate popups
     if (document.getElementById('creditPopup')) return;
-
-    // Create overlay
     const overlay = document.createElement('div');
     overlay.id = 'creditPopup';
     overlay.style.position = 'fixed';
@@ -512,33 +464,30 @@ function showCreditPopup() {
     overlay.style.left = 0;
     overlay.style.width = '100%';
     overlay.style.height = '100%';
-    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.6)'; // semi-transparent
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.6)'; 
     overlay.style.display = 'flex';
     overlay.style.alignItems = 'center';
     overlay.style.justifyContent = 'center';
-    overlay.style.zIndex = '9999'; // very high to appear on top
+    overlay.style.zIndex = '9999'; 
     overlay.style.fontFamily = 'Arial, Helvetica, sans-serif';
 
-    // Create popup box
     const popupBox = document.createElement('div');
-    popupBox.style.backgroundColor = '#222'; // dark background
+    popupBox.style.backgroundColor = '#222'; 
     popupBox.style.color = 'white';
     popupBox.style.padding = '20px 30px';
     popupBox.style.borderRadius = '12px';
     popupBox.style.textAlign = 'center';
     popupBox.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.5)';
     popupBox.style.maxWidth = '90%';
-    popupBox.style.zIndex = '10000'; // even higher
-    popupBox.style.pointerEvents = 'auto'; // enable click inside box
+    popupBox.style.zIndex = '10000'; 
+    popupBox.style.pointerEvents = 'auto';
 
-    // Message
     const message = document.createElement('p');
     message.textContent = "You don't have enough credits";
     message.style.marginBottom = '15px';
     message.style.fontSize = '16px';
     popupBox.appendChild(message);
 
-    // Close button
     const closeBtn = document.createElement('button');
     closeBtn.textContent = 'Close';
     closeBtn.style.padding = '8px 16px';
