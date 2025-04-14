@@ -150,8 +150,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 yellow: 0,
                 green: 0,
                 blue: 12,
-                purple: 33.95,
-                pink: 30,
+                purple: 23.95,
+                pink: 40,
                 white: 25,
                 gold: 8
             };
