@@ -5,14 +5,10 @@ function setCookie(name, value, days) {
     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
     document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
 }
-
-// Function to get a cookie
 function getCookie(name) {
     const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     return match ? match[2] : null;
 }
-
-// Function to replace the entire page with the quit message
 function showQuitMessage() {
     document.body.innerHTML = `
   <h3 style="font-size: 40pt; text-align:center; margin-top:20%;">You Quit, Now Leave</h3>
