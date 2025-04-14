@@ -159,27 +159,27 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         } else if (useableBox == newYellowBox) {
             colorChances = {
-                red: 0.2,
+                red: 0.5,
                 orange: 0,
                 yellow: 0,
                 green: 0,
-                blue: 10,
+                blue: 15,
                 purple: 33.95,
                 pink: 30,
                 white: 25,
-                gold: 2
+                gold: 5
             };
         } else if (useableBox == newPurpleBox) {
             colorChances = {
-                red: 1,
+                red: 2,
                 orange: 0,
                 yellow: 0,
                 green: 0,
                 blue: 0,
                 purple: 0,
-                pink: 35,
+                pink: 15,
                 white: 59.8,
-                gold: 5
+                gold: 20
             };
         }
         const weightedColors = [];
