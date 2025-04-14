@@ -204,6 +204,8 @@ nav ul li a:hover {
     /* Set the height of the PNG */
     background-size: cover;
     position: absolute;
+    pointer-events: auto;
+    z-index: 10;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -225,6 +227,8 @@ nav ul li a:hover {
     /* Set the height of the PNG */
     background-size: cover;
     position: absolute;
+    pointer-events: auto;
+    z-index: 10;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -246,6 +250,8 @@ nav ul li a:hover {
     /* Set the height of the PNG */
     background-size: cover;
     position: absolute;
+    pointer-events: auto;
+    z-index: 10;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -267,6 +273,8 @@ nav ul li a:hover {
     /* Set the height of the PNG */
     background-size: cover;
     position: absolute;
+    pointer-events: auto;
+    z-index: 10;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
